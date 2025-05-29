@@ -11,11 +11,15 @@ const startBtn = document.getElementById("begin");
 startBtn.addEventListener("click", () => {
   localStorage.setItem("q_no", 1);
   currentIndex = 1;
+  score = 0;
+  updateScore();
   displayQuestion();
 });
 
+let hasAnswerd = false;
 let currentIndex = 1;
-let score = 0;
+let score = Number(localStorage.getItem("score")) || 0;
+updateScore();
 const q_no = Number(localStorage.getItem("q_no"));
 
 if (!q_no) {
@@ -50,11 +54,12 @@ function saveData() {
 }
 
 next.addEventListener("click", () => {
+  hasAnswerd = false;
   if (currentIndex < questions.length) {
     currentIndex++;
     displayQuestion();
   }
-  if (currentIndex != 1) {
+  if (currentIndex != 1) {  
     previous.removeAttribute("disabled");
   }
 });
@@ -78,12 +83,21 @@ optionsElements.addEventListener("click", (e) => {
     const userAnswer = e.target.value;
     const correctAnswer = questions[currentIndex - 1].answer;
     if (correctAnswer === userAnswer) {
-      score++;
-      e.target.classList.add("correct");
+      if (hasAnswerd) {
+        return;
+      } else {
+        e.target.classList.add("correct");
+        updateScore();
+        hasAnswerd = true;
+      }
     } else {
       e.target.classList.add("wrong");
     }
   }
 });
 
-function updateScore() {}
+function updateScore() {
+  score++;
+  scoreEle.textContent = `Score: ${score}`;
+  localStorage.setItem("score", score);
+}
