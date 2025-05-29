@@ -45,7 +45,6 @@ function displayQuestion() {
       optionsElements.appendChild(optionEle);
     }
   }
-  saveData();
 }
 displayQuestion();
 
@@ -55,12 +54,13 @@ function saveData() {
 
 next.addEventListener("click", () => {
   hasAnswerd = false;
+  if (currentIndex != 1) {
+    previous.removeAttribute("disabled");
+  }
   if (currentIndex < questions.length) {
     currentIndex++;
     displayQuestion();
-  }
-  if (currentIndex != 1) {
-    previous.removeAttribute("disabled");
+    saveData();
   }
 });
 
