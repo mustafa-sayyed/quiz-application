@@ -1,0 +1,87 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    padding: 0 5px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+#question, #que_no {
+    font-size: 20px;
+}
+
+.options > button{
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 14px 20px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+.correct {
+    background-color: rgba(91, 199, 106, 1);
+}
+
+.wrong {
+    background-color: rgba(217, 72, 88, 1);
+}
+
+.options {
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.buttons > button {
+    padding: 14px 24px;
+    width: 100px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#next {
+    background-color: dodgerblue;
+    color: #fff;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 18px;
+}
+
+#begin {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 14px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #000;
+}
+
+
+
+
