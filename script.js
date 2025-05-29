@@ -59,7 +59,7 @@ next.addEventListener("click", () => {
     currentIndex++;
     displayQuestion();
   }
-  if (currentIndex != 1) {  
+  if (currentIndex != 1) {
     previous.removeAttribute("disabled");
   }
 });
@@ -87,6 +87,7 @@ optionsElements.addEventListener("click", (e) => {
         return;
       } else {
         e.target.classList.add("correct");
+        score++;
         updateScore();
         hasAnswerd = true;
       }
@@ -97,7 +98,6 @@ optionsElements.addEventListener("click", (e) => {
 });
 
 function updateScore() {
-  score++;
   scoreEle.textContent = `Score: ${score}`;
   localStorage.setItem("score", score);
 }
